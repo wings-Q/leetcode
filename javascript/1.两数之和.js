@@ -30,6 +30,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    
+    var hash = {};
+    var len = nums.length;
+    for (var i = 0;i<=len;i++){
+        if(hash[target-nums[i]] !== undefined){
+            return [hash[target-nums[i]],i];
+        }
+        hash[nums[i]]=i;
+    }
 };
 
