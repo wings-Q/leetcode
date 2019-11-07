@@ -21,10 +21,10 @@ class Solution:
                 break
         if uni:
             y = -y
-        if y<-2**31 or y>2**31-1:
-            return 0
-        else:
+        if -2147483647<y<2147483648:
             return int(y)
+        else:
+            return 0
 
 # @lc code=end
 
@@ -45,7 +45,7 @@ class Solution:
         y = int(stringx)
         if uni:
             y = -y
-        if y<-2**31 or y>2**31-1:
+        if 2147483647<y<-2147483648:
             return 0
         else:    
             return y
