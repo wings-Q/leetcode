@@ -3,26 +3,22 @@
 #
 # [7] 整数反转
 #
-
+'''
 # @lc code=start
+
 class Solution:
     def reverse(self, x: int) -> int:
-        L = []
-        i = 0
-        w = 10
         y = 0
         uni = False
         if x<0:
             x = -x
             uni = True
         while True:
-            L.append(x%w)
-            x = (x - L[i])/10
-            i = i + 1
+            a = x%10
+            x = (x - a)/10
+            y = y*10+a
             if x < 0.5:
                 break
-        for l in L:
-            y = y*10 + l
         if uni:
             y = -y
         if y<-2**31 or y>2**31-1:
@@ -31,3 +27,30 @@ class Solution:
             return int(y)
 
 # @lc code=end
+
+m = Solution.reverse(1,-100)
+print(m)
+'''
+
+# @lc code=start
+
+class Solution:
+    def reverse(self, x: int) -> int:
+        y = 0
+        uni = False
+        if x<0:
+            x = -x
+            uni = True
+        stringx = str(x)[::-1]
+        y = int(stringx)
+        if uni:
+            y = -y
+        if y<-2**31 or y>2**31-1:
+            return 0
+        else:    
+            return y
+
+# @lc code=end
+
+m = Solution.reverse(1,-100)
+print(m)
