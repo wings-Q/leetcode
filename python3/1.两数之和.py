@@ -24,6 +24,8 @@
 # 
 # 
 #
+'''
+#暴力解法
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for a in range(len(nums)-1,-1,-1):
@@ -32,7 +34,23 @@ class Solution:
             for b in range(len(nums)):
                 if target - numa == nums[b]:
                     return [a,b]
+'''
 
+#哈希表
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dict = {}
+        for i,num in enumerate(nums):
+            if num in dict:
+                return [dict[num],i]
+            else:
+                dict[target - num] = i
 
-
-
+'''
+# python切片
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            if target-nums[i] in nums[i+1:]:
+                return [i, nums.index(target-nums[i],i+1) ]
+'''
