@@ -26,4 +26,13 @@
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        pass
+        for a in range(len(nums)-1,-1,-1):
+            numa = nums[a]
+            del(nums[a])
+            for b in range(len(nums)):
+                if target - numa == nums[b]:
+                    return [a,b]
+
+
+
+
