@@ -7,12 +7,14 @@
 # @lc code=start
 class Solution:
     def removeDuplicates(self, nums) -> int:
-        prenum = nums[0]
-        for n,num in nums[1:]:
-            if num == prenum:
-                nums.pop
-        return len(set(nums))
+        i = 0
+        for num in nums:
+            if num != nums[i]:
+                i = i+1
+                nums[i] = num
+        print(nums)
+        return i+1
 
 
 # @lc code=end
-print(Solution.removeDuplicates(1,[1,1,2]))
+print(Solution.removeDuplicates(1,[0,0,1,1,1,2,2,2,3,3,4,4,5]))
